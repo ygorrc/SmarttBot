@@ -50,9 +50,6 @@ Foi dividido em varias partes importantes
  - celery-beat
  - poloniex
  
- ## Versionamento do codigo
- 
- Não cheguei usar o git , pois era um trabalho individual.
  
  ## Programação web
  
