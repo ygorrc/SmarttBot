@@ -28,7 +28,7 @@ def poloniex_function_1min():
             candle_object.maior = ticker
         if candle_object.menor > ticker:
             candle_object.menor = ticker
-        time.sleep(0.9)
+        time.sleep(1.0)
         tempo_corrido = time.time()
     candle_object.saida = ticker
     candle_object.save()
@@ -52,7 +52,7 @@ def poloniex_function_5min():
             candle_object.maior = ticker
         if candle_object.menor > ticker:
             candle_object.menor = ticker
-        time.sleep(0.9)
+        time.sleep(1.0)
         tempo_corrido = time.time()
     candle_object.saida = ticker
     candle_object.save()
@@ -76,7 +76,7 @@ def poloniex_function_10min():
             candle_object.maior = ticker
         if candle_object.menor > ticker:
             candle_object.menor = ticker
-        time.sleep(0.9)
+        time.sleep(1.0)
         tempo_corrido = time.time()
     candle_object.saida = ticker
     candle_object.save()

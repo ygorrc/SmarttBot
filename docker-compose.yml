@@ -19,7 +19,7 @@ services:
         command: "python manage.py runserver 0.0.0.0:8000"
     celery:
         build: .
-        command: celery -A SmarttBot worker -l INFO
+        command: celery -A SmarttBot worker -l INFO -c 100
         volumes:
             - .:/app
         environment:
@@ -59,7 +59,7 @@ services:
             - CELERY_BROKER=redis://redis:6379
             - CELERY_BACKEND=redis://redis:6379
         depends_on:
-          - redis   
+          - redis
     db:
         image: mysql:5.7.22
         restart: always

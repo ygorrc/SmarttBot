@@ -137,21 +137,21 @@ CORS_ORIGIN_ALLOW_ALL = True
 CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://redis:6379")
 CELERY_RESULT_BACKEND = os.environ.get("CELERY_BROKER", "redis://redis:6379")
 #chamando as tasks 
+
 CELERY_BEAT_SCHEDULE = {
-    "scheduled_task": {
+    "scheduled_task_1min": {
         "task": "candles.tasks.poloniex_function_1min",
         "schedule": 60.0,
         "args": (),
     },
-    "scheduled_task2": {
+    "scheduled_task_5min": {
         "task": "candles.tasks.poloniex_function_5min",
         "schedule": 300.0,
         "args": (),
     },
-    "scheduled_task3": {
+    "scheduled_task_10min": {
         "task": "candles.tasks.poloniex_function_10min",
         "schedule": 600.0,
         "args": (),
     },
 }
-
