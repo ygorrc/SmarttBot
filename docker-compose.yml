@@ -1,0 +1,74 @@
+version: '3.8'
+services:
+    backend:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - 8000:8000
+        volumes:
+            - .:/app
+        environment:
+            - DEBUG=1
+            - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1
+            - CELERY_BROKER=redis://redis:6379
+            - CELERY_BACKEND=redis://redis:6379
+        depends_on:
+            - db
+            - redis
+        command: "python manage.py runserver 0.0.0.0:8000"
+    celery:
+        build: .
+        command: celery -A SmarttBot worker -l INFO
+        volumes:
+            - .:/app
+        environment:
+            - DEBUG=1
+            - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1
+            - CELERY_BROKER=redis://redis:6379
+            - CELERY_BACKEND=redis://redis:6379
+        depends_on:
+            - redis
+            - app
+            - db
+    redis:
+        image: "redis:alpine"
+    flower:
+        build: ./
+        command: python -m flower -A SmarttBot
+        volumes:
+          - ./examples:/data
+        working_dir: /data
+        ports:
+            - 5555:5555
+        environment:
+            - DEBUG=1
+            - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1
+            - CELERY_BROKER=redis://redis:6379
+            - CELERY_BACKEND=redis://redis:6379
+        depends_on:
+            - celery
+    celery-beat:
+        build: ./
+        command: celery -A SmarttBot beat -l info --pidfile=/tmp/celeryd.pid
+        volumes:
+          - .:/app
+        environment:
+            - DEBUG=1
+            - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1
+            - CELERY_BROKER=redis://redis:6379
+            - CELERY_BACKEND=redis://redis:6379
+        depends_on:
+          - redis   
+    db:
+        image: mysql:5.7.22
+        restart: always
+        environment:
+            MYSQL_DATABASE: admin
+            MYSQL_USER: root
+            MYSQL_PASSWORD: root
+            MYSQL_ROOT_PASSWORD: root
+        volumes:
+            - .dbdata:/var/lib/mysql
+        ports:
+            - 33066:3306

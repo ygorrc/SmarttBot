@@ -1,0 +1,13 @@
+Django==3.2
+djangorestframework==3.12.2
+mysqlclient==2.0.1
+celery==4.4.7
+kombu==4.6.11
+redis
+flower
+psycopg2-binary>=2.8
+django-mysql==3.9
+django-cors-headers==3.5.0
+django-celery-beat==2.0.0
+poloniex
+poloniexapi==0.5.7
