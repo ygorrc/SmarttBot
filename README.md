@@ -28,14 +28,14 @@ seu próprio cliente.
  
  ### SmarttBot
  
-A parte mais importante desta seção foi as chamadas das tarefas assicronas que estão no arquivo setings.py, onde são realizadas a cada 1 min, 5min ,10min de acordo com a tarefa assicrona que são realizadas na seção Candles
+A parte mais importante desta seção foi as chamadas das tarefas assicronas que estão no arquivo setings.py, onde são realizadas a cada 1 min, 5min e 10min de acordo com a tarefa assicrona que são realizadas na seção Candles
 
 ### Candles
 
 Foi dividido em varias partes importantes
 
 - model.py: onde foi feita a tabela candle do banco de dados 
-- tasks.py: onde está sendo feito maior parte do projeto, esta parte è:
+- tasks.py: onde está sendo feito maior parte do projeto, esta parte é:
   - 3 tasks que cada uma corresponde a um candle(1 min, 5 min, 10 min), onde faz a chamada da api poloniex(cada chamada é realiazada a cada 1 s, na doc da api fala que o limite são 6 chamadas por segundos mais opitei por 1 por segundo). Depois de todo procesamento as informações são salvas no banco de dados).
  
  
