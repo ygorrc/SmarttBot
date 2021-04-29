@@ -52,7 +52,7 @@ Foi dividido em varias partes importantes
  
  ## Versionamento do codigo
  
- Não cheguei usar o git , pois uso um proprio visionamento no meu pc.
+ Não cheguei usar o git , pois era um trabalho individual.
  
  ## Programação web
  
@@ -81,7 +81,9 @@ Foi dividido em varias partes importantes
  
  Terceiro desafio foi as versões de cada um,pois como tinha muito framework sempre dava conflito. Então isto gastei muito tempo vendo qual versão era compativel com todos.
  
- Ultimo desafio foi o flower, que monitora e gerencia cluster do aipo. Esta parte não consegui debugar ainda , espero que mais para frente eu consiga
+ Ultimo desafio foi o flower, que monitora e gerencia cluster do aipo. Esta parte não consegui debugar ainda , espero que mais para frente eu consiga.
+ 
+ Por final cheguei ao objetivo, onde está produzindo os candles e salvando no banco de dados.
  
  ## Melhorias
  
