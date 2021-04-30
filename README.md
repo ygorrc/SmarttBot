@@ -5,8 +5,7 @@
  - Requisitos: Docker, docker-compose
  - Para executar:
    - `docker-compose up`.
-   - `docker-compose exec backend sh`.
-   - `python manage.py migrate`.
+
    
  ## Descrição do Desafio`
 Dados os preços de execução (cotações) de uma criptomoeda reportados em tempo real
