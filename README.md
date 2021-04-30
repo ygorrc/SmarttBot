@@ -38,6 +38,9 @@ Foi dividido em varias partes importantes
 - tasks.py: onde está sendo feito maior parte do projeto, esta parte é:
   - 3 tasks que cada uma corresponde a um candle(1 min, 5 min, 10 min), onde faz a chamada da api poloniex(cada chamada é realiazada a cada 1 s, na doc da api fala que o limite são 6 chamadas por segundos mais opitei por 1 por segundo). Depois de todo procesamento as informações são salvas no banco de dados).
  
+ Simplimente o app inicia celery-beat que é responsavel por chamar cada task de acordo com o tempo de cada candle(1min,5min,10min), onde fica fazendo isto até app ser pausado. Depois o celery é o responsavel pela paralelização e execução das tasks. Em cada uma das 3 task são informações passada pela api poloniex e colocada no mayqsl(banco de dados).
+ 
+Para ver o dados salvos, so executar get no localhost/api/candles pelo Postman ou acessar a tabela do banco de dados. Foi feitos os views para comunicação com o frontEnd, mas ele não foi implementado.
  
  
  ## Ferramentas e Tecnologias utilizadas
@@ -80,7 +83,7 @@ Foi dividido em varias partes importantes
  
  Ultimo desafio foi o flower, que monitora e gerencia cluster do aipo. Esta parte não consegui debugar ainda , espero que mais para frente eu consiga.
  
- Por final cheguei ao objetivo, onde está produzindo os candles e salvando no banco de dados.
+ Por final cheguei ao objetivo, onde está produzindo os candles e salvando no banco de dados. Só que como meu pc demora a começar a executar as imagens os primeiros candles estavam saindo desorganizado, mas quando executo as imagens manualmente todos os dados sai em ordem.
  
  ## Melhorias
  
